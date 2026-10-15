@@ -4,159 +4,231 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hassnain Haider | Generative AI Developer</title>
-  <link rel="stylesheet" href="style.css" />
-  <!-- Font Awesome Icons -->
+  
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Navigation -->
+  <!-- Navigation Bar -->
   <nav class="navbar">
     <div class="nav-container">
-      <a href="#" class="nav-logo">Hassnain.</a>
+      <a href="#home" class="nav-logo">Hassnain<span>.</span></a>
       <ul class="nav-menu">
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
     </div>
   </nav>
 
   <!-- Hero Section -->
-  <section class="hero" id="home">
-    <div class="hero-content">
-      <span class="greeting">Hi, I'm</span>
-      <h1>Hassnain Haider</h1>
-      <h2>Generative AI Developer | BSIT Graduate | Python & FastAPI</h2>
-      <p>Building production-ready Generative AI solutions using Large Language Models (LLMs), RAG, and high-performance backend APIs.</p>
-      <div class="hero-btns">
-        <a href="#projects" class="btn btn-primary">View Projects</a>
-        <a href="https://www.linkedin.com/in/hassnain-haider-35a968307/" target="_blank" class="btn btn-secondary"><i class="fab fa-linkedin"></i> LinkedIn</a>
+  <header class="hero" id="home">
+    <div class="hero-container">
+      <div class="hero-badge">
+        <span class="pulse-dot"></span> Available for AI Engineering roles
+      </div>
+      <h1 class="hero-title">
+        Hi, I'm <span class="gradient-text">Hassnain Haider</span>
+      </h1>
+      <h2 class="hero-subtitle">
+        Generative AI Developer | BSIT Graduate | Python & FastAPI Enthusiast
+      </h2>
+      <p class="hero-description">
+        I architect production-ready Generative AI solutions using Large Language Models (LLMs), 
+        Retrieval-Augmented Generation (RAG), and high-throughput Python frameworks.
+      </p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">
+          <i class="fas fa-layer-group"></i> View Projects
+        </a>
+        <a href="https://www.linkedin.com/in/hassnain-haider-35a968307/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+        <a href="https://github.com/HassnainKhan1044" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+          <i class="fab fa-github"></i> GitHub
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Skills Section -->
+  <section class="section" id="skills">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Technical Expertise</h2>
+        <p class="section-subtitle">Core frameworks and tools I leverage daily</p>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-card">
+          <i class="fas fa-brain skill-icon"></i>
+          <h3>Generative AI & LLMs</h3>
+          <p>LangChain, LangGraph, RAG Architecture, OpenAI Whisper, Prompt Engineering</p>
+        </div>
+        <div class="skill-card">
+          <i class="fas fa-server skill-icon"></i>
+          <h3>Backend & APIs</h3>
+          <p>Python, FastAPI, Streamlit, Asynchronous Architecture, REST APIs</p>
+        </div>
+        <div class="skill-card">
+          <i class="fas fa-database skill-icon"></i>
+          <h3>Databases & Vector Search</h3>
+          <p>PostgreSQL, SQLite, Vector Databases (FAISS, ChromaDB), SQL Optimization</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Featured Projects Section -->
-  <section class="projects" id="projects">
-    <div class="section-title">
-      <h2>Featured Projects</h2>
-      <p>Recent AI Systems & End-to-End Applications</p>
-    </div>
-
-    <div class="projects-grid">
-
-      <!-- Project 1: AI Business Intelligence (New Replacement) -->
-      <div class="project-card">
-        <div class="project-img-wrapper">
-          <img src="assets/images/ai-bi.png" alt="AI Business Intelligence Platform" class="project-img" />
-        </div>
-        <div class="project-info">
-          <div class="project-tags">
-            <span class="tag">Python</span>
-            <span class="tag">FastAPI</span>
-            <span class="tag">Gemini API</span>
-            <span class="tag">SQL</span>
-          </div>
-          <h3 class="project-title">AI Business Intelligence Platform</h3>
-          <p class="project-desc">
-            Autonomous Multi-Agent AI system designed for data analysis, automated data validation (IQR anomaly profiling), and conversational Text-to-SQL dashboard.
-          </p>
-          <div class="project-links">
-            <a href="https://github.com/HassnainKhan1044/AI-Business-Intelligence" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-              <i class="fab fa-github"></i> Code
-            </a>
-          </div>
-        </div>
+  <section class="section projects-section" id="projects">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-subtitle">Real-world AI systems engineered for scale and usability</p>
       </div>
 
-      <!-- Project 2: AI Resume Analyzer -->
-      <div class="project-card">
-        <div class="project-img-wrapper">
-          <img src="assets/images/ai-resume.png" alt="AI Resume Analyzer" class="project-img" />
-        </div>
-        <div class="project-info">
-          <div class="project-tags">
-            <span class="tag">Python</span>
-            <span class="tag">LangChain</span>
-            <span class="tag">Gemini API</span>
-            <span class="tag">Streamlit</span>
-          </div>
-          <h3 class="project-title">AI Resume Analyzer</h3>
-          <p class="project-desc">
-            AI-powered tool that analyzes resumes, calculates ATS compatibility scores, compares against job descriptions, and provides actionable improvements.
-          </p>
-          <div class="project-links">
-            <a href="https://github.com/HassnainKhan1044/AI-Resume-Analyzer" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-              <i class="fab fa-github"></i> Code
-            </a>
-          </div>
-        </div>
-      </div>
+      <div class="projects-grid">
 
-      <!-- Project 3: AI Meeting Summarizer -->
-      <div class="project-card">
-        <div class="project-img-wrapper">
-          <img src="assets/images/meeting-summarizer.png" alt="AI Meeting Summarizer" class="project-img" />
-        </div>
-        <div class="project-info">
-          <div class="project-tags">
-            <span class="tag">FastAPI</span>
-            <span class="tag">Whisper AI</span>
-            <span class="tag">Groq</span>
-            <span class="tag">LLMs</span>
+        <!-- Project 1: AI Business Intelligence -->
+        <article class="project-card">
+          <div class="project-banner banner-bi">
+            <i class="fas fa-chart-line banner-icon"></i>
+            <span class="banner-label">Analytics & Multi-Agent</span>
           </div>
-          <h3 class="project-title">AI Meeting Summarizer</h3>
-          <p class="project-desc">
-            Upload meeting audio/video to generate accurate transcripts using Whisper, with automated AI-powered executive meeting summaries and action items.
-          </p>
-          <div class="project-links">
-            <a href="https://github.com/HassnainKhan1044/AI-Meeting-Summarizer" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-              <i class="fab fa-github"></i> Code
-            </a>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">FastAPI</span>
+              <span class="tag">Gemini API</span>
+              <span class="tag">SQL</span>
+            </div>
+            <h3 class="project-heading">AI Business Intelligence Platform</h3>
+            <p class="project-text">
+              Autonomous Multi-Agent AI system designed for automated data validation, statistical anomaly detection (IQR), and conversational Text-to-SQL querying.
+            </p>
+            <div class="project-footer">
+              <a href="https://github.com/HassnainKhan1044/AI-Business-Intelligence" target="_blank" rel="noopener noreferrer" class="btn-project">
+                <i class="fab fa-github"></i> Repository Code
+              </a>
+            </div>
           </div>
-        </div>
-      </div>
+        </article>
 
-      <!-- Project 4: Enterprise RAG Chatbot -->
-      <div class="project-card">
-        <div class="project-img-wrapper">
-          <img src="assets/images/rag-chatbot.png" alt="Enterprise RAG Chatbot" class="project-img" />
-        </div>
-        <div class="project-info">
-          <div class="project-tags">
-            <span class="tag">LangChain</span>
-            <span class="tag">FAISS</span>
-            <span class="tag">Vector DB</span>
-            <span class="tag">Python</span>
+        <!-- Project 2: AI Resume Analyzer -->
+        <article class="project-card">
+          <div class="project-banner banner-resume">
+            <i class="fas fa-file-invoice banner-icon"></i>
+            <span class="banner-label">NLP & Evaluation</span>
           </div>
-          <h3 class="project-title">Company RAG Chatbot</h3>
-          <p class="project-desc">
-            Retrieval-Augmented Generation (RAG) chatbot that answers complex queries directly from internal company documents with vector similarity search.
-          </p>
-          <div class="project-links">
-            <a href="https://github.com/HassnainKhan1044/Company-RAG-Chatbot" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-              <i class="fab fa-github"></i> Code
-            </a>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">LangChain</span>
+              <span class="tag">Gemini API</span>
+              <span class="tag">Streamlit</span>
+            </div>
+            <h3 class="project-heading">AI Resume Analyzer</h3>
+            <p class="project-text">
+              Intelligent applicant parsing engine evaluating resume-to-job descriptions, measuring ATS compatibility, and highlighting specific skill enhancements.
+            </p>
+            <div class="project-footer">
+              <a href="https://github.com/HassnainKhan1044/AI-Resume-Analyzer" target="_blank" rel="noopener noreferrer" class="btn-project">
+                <i class="fab fa-github"></i> Repository Code
+              </a>
+            </div>
           </div>
-        </div>
-      </div>
+        </article>
 
+        <!-- Project 3: AI Meeting Summarizer -->
+        <article class="project-card">
+          <div class="project-banner banner-meeting">
+            <i class="fas fa-microphone-alt banner-icon"></i>
+            <span class="banner-label">Speech-to-Text</span>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag">FastAPI</span>
+              <span class="tag">Whisper AI</span>
+              <span class="tag">Groq</span>
+              <span class="tag">LLMs</span>
+            </div>
+            <h3 class="project-heading">AI Meeting Summarizer</h3>
+            <p class="project-text">
+              High-accuracy audio transcription service with OpenAI Whisper, extracting key decisions, executive summaries, and itemized next steps automatically.
+            </p>
+            <div class="project-footer">
+              <a href="https://github.com/HassnainKhan1044/AI-Meeting-Summarizer" target="_blank" rel="noopener noreferrer" class="btn-project">
+                <i class="fab fa-github"></i> Repository Code
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 4: Enterprise RAG Chatbot -->
+        <article class="project-card">
+          <div class="project-banner banner-rag">
+            <i class="fas fa-robot banner-icon"></i>
+            <span class="banner-label">RAG Architecture</span>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag">LangChain</span>
+              <span class="tag">FAISS</span>
+              <span class="tag">Vector DB</span>
+              <span class="tag">Gemini API</span>
+            </div>
+            <h3 class="project-heading">Company RAG Chatbot</h3>
+            <p class="project-text">
+              Context-aware corporate assistant that performs semantic vector searches over private document repositories to deliver hallucination-free answers.
+            </p>
+            <div class="project-footer">
+              <a href="https://github.com/HassnainKhan1044/Company-RAG-Chatbot" target="_blank" rel="noopener noreferrer" class="btn-project">
+                <i class="fab fa-github"></i> Repository Code
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section class="contact" id="contact">
-    <div class="section-title">
-      <h2>Get In Touch</h2>
-      <p>Let's collaborate on Generative AI solutions and scalable systems.</p>
-    </div>
-    <div class="contact-links">
-      <a href="mailto:hhaider1044@gmail.com" class="contact-item"><i class="fas fa-envelope"></i> hhaider1044@gmail.com</a>
-      <a href="https://www.linkedin.com/in/hassnain-haider-35a968307/" target="_blank" class="contact-item"><i class="fab fa-linkedin"></i> LinkedIn Profile</a>
-      <a href="https://github.com/HassnainKhan1044" target="_blank" class="contact-item"><i class="fab fa-github"></i> GitHub Profile</a>
+  <section class="section contact-section" id="contact">
+    <div class="container">
+      <div class="contact-box">
+        <h2 class="section-title">Let's Connect</h2>
+        <p class="section-subtitle">
+          Interested in developing custom LLM applications, RAG pipelines, or backend systems? Reach out anytime.
+        </p>
+        <div class="contact-items">
+          <a href="mailto:hhaider1044@gmail.com" class="contact-pill">
+            <i class="fas fa-envelope"></i> hhaider1044@gmail.com
+          </a>
+          <a href="https://www.linkedin.com/in/hassnain-haider-35a968307/" target="_blank" rel="noopener noreferrer" class="contact-pill">
+            <i class="fab fa-linkedin"></i> LinkedIn Profile
+          </a>
+          <a href="https://github.com/HassnainKhan1044" target="_blank" rel="noopener noreferrer" class="contact-pill">
+            <i class="fab fa-github"></i> GitHub Profile
+          </a>
+        </div>
+      </div>
     </div>
   </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <p>© 2026 Hassnain Haider. Designed for high performance & clean architecture.</p>
+    </div>
+  </footer>
 
 </body>
 </html>
