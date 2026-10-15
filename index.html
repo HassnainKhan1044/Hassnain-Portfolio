@@ -9,15 +9,453 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    /* ==========================================================================
+       Root Variables & Reset
+       ========================================================================== */
+    :root {
+      --bg-dark: #0b0f19;
+      --bg-card: rgba(255, 255, 255, 0.03);
+      --border-card: rgba(255, 255, 255, 0.08);
+      --border-hover: #3b82f6;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --accent-cyan: #06b6d4;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+    }
+
+    body {
+      line-height: 1.6;
+      overflow-x: hidden;
+      background: radial-gradient(circle at 10% 15%, rgba(37, 99, 235, 0.12) 0%, transparent 40%),
+                  radial-gradient(circle at 90% 85%, rgba(6, 182, 212, 0.08) 0%, transparent 40%),
+                  #0b0f19;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ==========================================================================
+       Navbar
+       ========================================================================== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 70px;
+      background: rgba(11, 15, 25, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    .nav-logo {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #fff;
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-logo span {
+      color: var(--primary);
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 28px;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-link:hover {
+      color: #fff;
+    }
+
+    /* ==========================================================================
+       Hero Section
+       ========================================================================== */
+    .hero {
+      padding: 160px 0 90px;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(37, 99, 235, 0.1);
+      border: 1px solid rgba(37, 99, 235, 0.3);
+      color: #60a5fa;
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 6px 16px;
+      border-radius: 9999px;
+      margin-bottom: 24px;
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #3b82f6;
+      box-shadow: 0 0 10px #3b82f6;
+    }
+
+    .hero-title {
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -1.2px;
+      margin-bottom: 16px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #60a5fa 0%, #38bdf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.05rem, 2vw, 1.3rem);
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--text-dim);
+      max-width: 680px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+
+    .hero-cta {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 22px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-main);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================================================
+       Sections & Headers
+       ========================================================================== */
+    .section {
+      padding: 70px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .section-subtitle {
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    /* ==========================================================================
+       Skills Cards
+       ========================================================================== */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .skill-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      padding: 32px 24px;
+      border-radius: 16px;
+      transition: border-color 0.2s;
+    }
+
+    .skill-card:hover {
+      border-color: rgba(59, 130, 246, 0.4);
+    }
+
+    .skill-icon {
+      font-size: 2rem;
+      color: var(--accent-cyan);
+      margin-bottom: 16px;
+    }
+
+    .skill-card h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+
+    .skill-card p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       Featured Projects Cards (with Sleek Gradient Covers)
+       ========================================================================== */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 28px;
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(59, 130, 246, 0.5);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .project-banner {
+      height: 150px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .banner-bi { background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%); }
+    .banner-resume { background: linear-gradient(135deg, #065f46 0%, #059669 100%); }
+    .banner-meeting { background: linear-gradient(135deg, #4c1d95 0%, #7c3aed 100%); }
+    .banner-rag { background: linear-gradient(135deg, #831843 0%, #db2777 100%); }
+
+    .banner-icon {
+      font-size: 2.6rem;
+      color: #ffffff;
+    }
+
+    .banner-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .project-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .tag {
+      background: rgba(59, 130, 246, 0.12);
+      color: #93c5fd;
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid rgba(59, 130, 246, 0.25);
+    }
+
+    .project-heading {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .project-text {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 24px;
+      flex-grow: 1;
+    }
+
+    .project-footer {
+      margin-top: auto;
+    }
+
+    .btn-project {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-project:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+    }
+
+    /* ==========================================================================
+       Contact & Footer
+       ========================================================================== */
+    .contact-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      padding: 50px 24px;
+      border-radius: 24px;
+      text-align: center;
+    }
+
+    .contact-items {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .contact-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 9999px;
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .contact-pill:hover {
+      background: rgba(59, 130, 246, 0.15);
+      border-color: var(--primary);
+      color: #60a5fa;
+      transform: translateY(-2px);
+    }
+
+    .footer {
+      padding: 30px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 768px) {
+      .nav-menu { display: none; }
+      .hero { padding: 130px 0 60px; }
+      .section { padding: 50px 0; }
+    }
+  </style>
 </head>
 <body>
 
   <!-- Navigation Bar -->
   <nav class="navbar">
-    <div class="nav-container">
+    <div class="container nav-inner">
       <a href="#home" class="nav-logo">Hassnain<span>.</span></a>
       <ul class="nav-menu">
         <li><a href="#about" class="nav-link">About</a></li>
@@ -30,7 +468,7 @@
 
   <!-- Hero Section -->
   <header class="hero" id="home">
-    <div class="hero-container">
+    <div class="container">
       <div class="hero-badge">
         <span class="pulse-dot"></span> Available for AI Engineering roles
       </div>
@@ -40,7 +478,7 @@
       <h2 class="hero-subtitle">
         Generative AI Developer | BSIT Graduate | Python & FastAPI Enthusiast
       </h2>
-      <p class="hero-description">
+      <p class="hero-desc">
         I architect production-ready Generative AI solutions using Large Language Models (LLMs), 
         Retrieval-Augmented Generation (RAG), and high-throughput Python frameworks.
       </p>
@@ -63,7 +501,7 @@
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">Technical Expertise</h2>
-        <p class="section-subtitle">Core frameworks and tools I leverage daily</p>
+        <p class="section-subtitle">Core frameworks and technologies I leverage daily</p>
       </div>
 
       <div class="skills-grid">
@@ -75,7 +513,7 @@
         <div class="skill-card">
           <i class="fas fa-server skill-icon"></i>
           <h3>Backend & APIs</h3>
-          <p>Python, FastAPI, Streamlit, Asynchronous Architecture, REST APIs</p>
+          <p>Python, FastAPI, Streamlit, Asynchronous Architecture, High-Throughput REST APIs</p>
         </div>
         <div class="skill-card">
           <i class="fas fa-database skill-icon"></i>
@@ -87,11 +525,11 @@
   </section>
 
   <!-- Featured Projects Section -->
-  <section class="section projects-section" id="projects">
+  <section class="section" id="projects">
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">Featured Projects</h2>
-        <p class="section-subtitle">Real-world AI systems engineered for scale and usability</p>
+        <p class="section-subtitle">Real-world AI systems engineered for scale and impact</p>
       </div>
 
       <div class="projects-grid">
@@ -201,7 +639,7 @@
   </section>
 
   <!-- Contact Section -->
-  <section class="section contact-section" id="contact">
+  <section class="section" id="contact">
     <div class="container">
       <div class="contact-box">
         <h2 class="section-title">Let's Connect</h2>
@@ -213,10 +651,10 @@
             <i class="fas fa-envelope"></i> hhaider1044@gmail.com
           </a>
           <a href="https://www.linkedin.com/in/hassnain-haider-35a968307/" target="_blank" rel="noopener noreferrer" class="contact-pill">
-            <i class="fab fa-linkedin"></i> LinkedIn Profile
+            <i class="fab fa-linkedin"></i> LinkedIn
           </a>
           <a href="https://github.com/HassnainKhan1044" target="_blank" rel="noopener noreferrer" class="contact-pill">
-            <i class="fab fa-github"></i> GitHub Profile
+            <i class="fab fa-github"></i> GitHub
           </a>
         </div>
       </div>
@@ -225,7 +663,7 @@
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="container footer-content">
+    <div class="container">
       <p>© 2026 Hassnain Haider. Designed for high performance & clean architecture.</p>
     </div>
   </footer>
